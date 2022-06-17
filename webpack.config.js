@@ -36,6 +36,10 @@ module.exports = {
                 // 使用less-loader, 让webpack处理less文件, 内置还会用less翻译less代码成css内容
                 use: ["style-loader", "css-loader", 'less-loader']
             },
+            {
+                test: /\.(png|jpg|gif|jpeg)$/i,
+                type: 'asset'
+            },
         ]
     }
 }
