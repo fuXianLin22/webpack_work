@@ -3,6 +3,8 @@ const path = require('path')
 
 // 引入自动生成 html 的插件
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+// webpack.config.js
+const { VueLoaderPlugin } = require('vue-loader')
 
 module.exports = {
     // mode: 'development || production' production为生产环境，development为开发环境
@@ -20,7 +22,9 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './public/index.html',  //配置index.html模板地址
             filename: 'index.html'  // 生成的文件名字
-        })
+        }),
+        // 请确保引入这个插件！
+        new VueLoaderPlugin()
     ],
     module: {
         rules: [ // loader的规则
@@ -56,6 +60,10 @@ module.exports = {
                         presets: ['@babel/preset-env'] // 预设:转码规则(用bable开发环境本来预设的)
                     }
                 }
+            },
+            {
+                test: /\.vue$/,
+                loader: 'vue-loader'
             }
         ]
     }
