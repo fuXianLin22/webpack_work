@@ -19,3 +19,10 @@ png.src = pngSrc
 // 挂载图片
 document.body.appendChild(gif)
 document.body.appendChild(png)
+// 引入font.css
+import './assets/fonts/iconfont.css'
+// es6=>es5
+const fn = () => {
+    console.log('hello World');
+}
+fn()
